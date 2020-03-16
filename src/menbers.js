@@ -12,7 +12,7 @@ export const list = [
 
   { name: "ONO", color: "#309" },
   { name: "FURUHASHI", color: "#639" },
-  // { name: "JONDOUE2", color: "#969" },
+  { name: "HIGUCHI", color: "#969" },
 
   { name: "GO", color: "#000" },
 
