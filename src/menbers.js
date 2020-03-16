@@ -4,15 +4,15 @@ export const list = [
   { name: "KUGIMOTO", color: "#903" },
 
   { name: "FUJIKAWA", color: "#900" },
-  { name: "TAKEUTI", color: "#609" },
+  { name: "TAKEUCHI", color: "#609" },
   { name: "KOIDE", color: "#939" },
   { name: "UCHIDA", color: "#936" },
   { name: "IKEUCHI", color: "#933" },
   { name: "HATTORI", color: "#930" },
 
   { name: "ONO", color: "#309" },
-  { name: "JONDOUE", color: "#639" },
-  { name: "JONDOUE2", color: "#969" },
+  { name: "FURUHASHI", color: "#639" },
+  // { name: "JONDOUE2", color: "#969" },
 
   { name: "GO", color: "#000" },
 

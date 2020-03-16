@@ -14,3 +14,19 @@
   text-align: center;
   vertical-align: center;
 }
+
+.selected {
+  animation: selected 3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes selected {
+  0% {
+    clip-path: circle(0 at 50% 50%);
+    -webkit-clip-path: circle(0 at 50% 50%);
+  }
+
+  100% {
+    clip-path: circle(100% at 50% 50%);
+    -webkit-clip-path: circle(100% at 50% 50%);
+  }
+}
