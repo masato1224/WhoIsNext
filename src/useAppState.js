@@ -16,10 +16,12 @@ export const useAppState = () => {
 
   const start = () => {
     setRoulette(
+      // TODO:ここも上手くやれそう、STOPボタンをなくして自動で止まるといいな
       setInterval(function() {
         choseRandomMember();
       }, 50)
     );
+    // TODO: idで指定しているところもっと上手くできないか？
     document.getElementById("startButton").disabled = true;
     document.getElementById("nameCard").classList.remove("selected");
   };
@@ -29,6 +31,7 @@ export const useAppState = () => {
       clearInterval(roulette);
       choseRandomMember();
       setRoulette();
+      // TODO: idで指定しているところもっと上手くできないか？
       document.getElementById("startButton").disabled = false;
       document.getElementById("nameCard").classList.add("selected");
     }

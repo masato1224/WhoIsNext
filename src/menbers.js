@@ -1,3 +1,4 @@
+// TODO: 腹持ちをやめてAPIにしたいな
 export const list = [
   { name: "KAROUJI", color: "#909" },
   { name: "GOMIMOTO", color: "#906" },
