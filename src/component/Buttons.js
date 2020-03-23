@@ -10,13 +10,6 @@ export default function Buttons(props) {
       >
         Spin the wheel
       </button>
-      <button
-        id="stopButton"
-        className="btn btn-outline-danger btn-lg mt-5"
-        onClick={() => props.stopOnclick()}
-      >
-        stop !
-      </button>
     </Fragment>
   );
 }

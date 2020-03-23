@@ -1,41 +1,48 @@
 import { useState } from "react";
 import { list } from "./menbers";
+import { useConditionalTimeout } from "beautiful-react-hooks";
 
 export const useAppState = () => {
-  const [name, setName] = useState("");
-  const [style, setStyle] = useState({});
-  const [roulette, setRoulette] = useState();
+  const [member, setMember] = useState({});
+  const [intervalId, setIntervalId] = useState(null);
+  const [isStarted, setIsStarted] = useState(false);
 
-  const listLength = list.length;
+  useConditionalTimeout(
+    () => {
+      stopToChoose(intervalId, setIsStarted);
+    },
+    3000,
+    isStarted
+  );
 
-  const choseRandomMember = () => {
-    const member = list[Math.floor(Math.random() * Math.floor(listLength))];
-    setName(member.name);
-    setStyle({ backgroundColor: member.color });
-  };
+  const chooseMember = startToChoose(setIntervalId, setMember, setIsStarted);
 
-  const start = () => {
-    setRoulette(
-      // TODO:ここも上手くやれそう、STOPボタンをなくして自動で止まるといいな
-      setInterval(function() {
-        choseRandomMember();
+  return [member.name, member.style, chooseMember];
+};
+
+function startToChoose(setIntervalId, setMember, setIsStarted) {
+  return () => {
+    setIntervalId(
+      setInterval(() => {
+        setMember(chooseMemberRandomly());
       }, 50)
     );
     // TODO: idで指定しているところもっと上手くできないか？
     document.getElementById("startButton").disabled = true;
     document.getElementById("nameCard").classList.remove("selected");
+    setIsStarted(true);
   };
+}
 
-  const stop = () => {
-    if (!!roulette) {
-      clearInterval(roulette);
-      choseRandomMember();
-      setRoulette();
-      // TODO: idで指定しているところもっと上手くできないか？
-      document.getElementById("startButton").disabled = false;
-      document.getElementById("nameCard").classList.add("selected");
-    }
-  };
+function stopToChoose(intervalId, setIsStarted) {
+  clearInterval(intervalId);
+  // TODO: idで指定しているところもっと上手くできないか？
+  document.getElementById("startButton").disabled = false;
+  document.getElementById("nameCard").classList.add("selected");
+  setIsStarted(false);
+}
 
-  return [name, style, start, stop];
-};
+function chooseMemberRandomly() {
+  const member = list[Math.floor(Math.random() * Math.floor(list.length))];
+  return { name: member.name, style: { backgroundColor: member.color } };
+}

@@ -8,6 +8,7 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "beautiful-react-hooks": "0.23.0",
     "bootstrap": "4.4.1",
     "font-awesome": "4.7.0",
     "jquery": "3.4.1",
