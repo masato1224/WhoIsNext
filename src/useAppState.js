@@ -27,7 +27,7 @@ function startToChoose(setIntervalId, setMember, setIsStarted) {
         setMember(chooseMemberRandomly());
       }, 50)
     );
-    // TODO: idで指定しているところもっと上手くできないか？
+    // TODO: idで指定しているところもっと上手くできないか？テストが書きにくい
     document.getElementById("startButton").disabled = true;
     document.getElementById("nameCard").classList.remove("selected");
     setIsStarted(true);
@@ -36,7 +36,7 @@ function startToChoose(setIntervalId, setMember, setIsStarted) {
 
 function stopToChoose(intervalId, setIsStarted) {
   clearInterval(intervalId);
-  // TODO: idで指定しているところもっと上手くできないか？
+  // TODO: idで指定しているところもっと上手くできないか？テストが書きにくい
   document.getElementById("startButton").disabled = false;
   document.getElementById("nameCard").classList.add("selected");
   setIsStarted(false);
