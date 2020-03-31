@@ -6,13 +6,35 @@ export const useAppState = () => {
   const [member, setMember] = useState({});
   const [intervalId, setIntervalId] = useState(null);
   const [isStarted, setIsStarted] = useState(false);
+  const [isSlowDown, setIsSlowDown] = useState(false);
+
+  // 高速ルーレット
+  // 2秒間回る
+  useConditionalTimeout(
+    () => {
+      //ループを止める
+      clearInterval(intervalId);
+      // 遅いルーレットを始める
+      setIntervalId(
+        setInterval(() => {
+          setMember(chooseMemberRandomly());
+        }, 700)
+      );
+      // フラグを立てる
+      setIsSlowDown(true);
+      setIsStarted(false);
+    },
+    3000,
+    isStarted
+  );
 
   useConditionalTimeout(
     () => {
       stopToChoose(intervalId, setIsStarted);
+      setIsSlowDown(false);
     },
-    3000,
-    isStarted
+    5000,
+    isSlowDown
   );
 
   const chooseMember = startToChoose(setIntervalId, setMember, setIsStarted);
@@ -25,7 +47,7 @@ function startToChoose(setIntervalId, setMember, setIsStarted) {
     setIntervalId(
       setInterval(() => {
         setMember(chooseMemberRandomly());
-      }, 50)
+      }, 100)
     );
     // TODO: idで指定しているところもっと上手くできないか？テストが書きにくい
     document.getElementById("startButton").disabled = true;
