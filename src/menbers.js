@@ -24,6 +24,6 @@ export const list = [
 
   { name: "SUZUKI", color: "#069" },
   { name: "OGAWA", color: "#399" },
-  { name: "TATSUMI", color: "#369" },
+  { name: "MINAMI", color: "#369" },
   { name: "WAKATA", color: "#099" }
 ];
