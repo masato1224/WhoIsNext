@@ -6,7 +6,11 @@ export default function Buttons(props) {
       <button
         id="startButton"
         className="btn btn-outline-primary btn-lg mt-5 mr-2"
-        onClick={() => props.startOnClick()}
+        onClick={() => {
+          props.startOnClick();
+          window.dataLayer = window.dataLayer || [];
+          dataLayer.push({ event: "click", label: "spin the wheel" });
+        }}
       >
         Spin the wheel
       </button>
