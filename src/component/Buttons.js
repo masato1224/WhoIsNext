@@ -9,6 +9,7 @@ export default function Buttons(props) {
         onClick={() => {
           props.startOnClick();
           window.dataLayer = window.dataLayer || [];
+          /*global dataLayer*/
           dataLayer.push({ event: "click", label: "spin the wheel" });
         }}
       >
