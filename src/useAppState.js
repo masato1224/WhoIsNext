@@ -24,7 +24,7 @@ export const useAppState = () => {
       setIsSlowDown(true);
       setIsStarted(false);
     },
-    3000,
+    2000,
     isStarted
   );
 
@@ -33,7 +33,7 @@ export const useAppState = () => {
       stopToChoose(intervalId, setIsStarted);
       setIsSlowDown(false);
     },
-    5000,
+    3000,
     isSlowDown
   );
 
