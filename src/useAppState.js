@@ -47,7 +47,7 @@ function startToChoose(setIntervalId, setMember, setIsStarted) {
     setIntervalId(
       setInterval(() => {
         setMember(chooseMemberRandomly());
-      }, 100)
+      }, 300)
     );
     // TODO: idで指定しているところもっと上手くできないか？テストが書きにくい
     document.getElementById("startButton").disabled = true;
