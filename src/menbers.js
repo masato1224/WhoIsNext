@@ -12,8 +12,8 @@ export const list = [
   { name: "まさすぃ〜☆", color: "#933" },
   { name: "なびちゃん", color: "#930" },
 
-  { name: "ピアノちゃん", color: "#200" },
+  { name: "ピアノちゃん", color: "#fcd" },
   { name: "鶴飼", color: "#309" },
-  { name: "コロコロクリリン", color: "#639" },
-  { name: "タキシードサム", color: "#969" }
+  { name: "コロコロクリリン", color: "#fb9" },
+  { name: "タキシードサム", color: "#48f" }
 ];
